@@ -1,0 +1,20 @@
+{
+  "name": "mp4-parser",
+  "version": "1.0.0",
+  "description": "Fast mp4 moov metadata parsing via optimized file streaming",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mp4",
+    "moov",
+    "parser",
+    "metadata",
+    ".mp4",
+    "creation time",
+    "atom"
+  ],
+  "author": "Kevin Nadro",
+  "license": "MIT"
+}
