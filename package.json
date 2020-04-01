@@ -4,7 +4,8 @@
   "description": "Fast mp4 moov metadata parsing via optimized file streaming",
   "main": "./distribution/index.js",
   "scripts": {
-    "build": "babel source --presets @babel/preset-env --plugins @babel/plugin-transform-async-to-generator --out-dir distribution"
+    "build": "babel source --presets @babel/preset-env --plugins @babel/plugin-transform-async-to-generator --out-dir distribution",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
