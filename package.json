@@ -6,6 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nadr0/mp4-parser"
+  },
   "keywords": [
     "mp4",
     "moov",
@@ -16,5 +20,9 @@
     "atom"
   ],
   "author": "Kevin Nadro",
-  "license": "MIT"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nadr0/mp4-parser/issues"
+  },
+  "homepage": "https://github.com/nadr0/mp4-parser"
 }
