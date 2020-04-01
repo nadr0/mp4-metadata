@@ -2,9 +2,9 @@
   "name": "mp4-parser",
   "version": "1.0.0",
   "description": "Fast mp4 moov metadata parsing via optimized file streaming",
-  "main": "index.js",
+  "main": "./distribution/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel source --presets @babel/preset-env --plugins @babel/plugin-transform-async-to-generator --out-dir distribution"
   },
   "repository": {
     "type": "git",
@@ -24,5 +24,11 @@
   "bugs": {
     "url": "https://github.com/nadr0/mp4-parser/issues"
   },
-  "homepage": "https://github.com/nadr0/mp4-parser"
+  "homepage": "https://github.com/nadr0/mp4-parser",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-transform-async-to-generator": "^7.8.3",
+    "@babel/preset-env": "^7.9.0"
+  }
 }
