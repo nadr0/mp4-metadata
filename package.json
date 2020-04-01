@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/nadr0/mp4-parser"
+    "url": "https://github.com/nadr0/mp4-metadata"
   },
   "keywords": [
     "mp4",
@@ -23,9 +23,9 @@
   "author": "Kevin Nadro",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nadr0/mp4-parser/issues"
+    "url": "https://github.com/nadr0/mp4-metadata/issues"
   },
-  "homepage": "https://github.com/nadr0/mp4-parser",
+  "homepage": "https://github.com/nadr0/mp4-metadata",
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
