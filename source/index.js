@@ -110,10 +110,12 @@ const parseBytesAfterMvhd = (uInt8Chunk) => {
  * i.g. you can search for moov, mvhd, etc...
  * @param {(File | Blob)} file 
  * @param {String} str - String contents you are trying to search in the file
- * @param {*} defaultChunkSize 
- * @param {*} maxBytesRead 
+ * @param {Number} defaultChunkSize chunk size to read in bytes
+ * @param {Number} maxBytesRead number of bytes to read before killing
+ * @return {Number} globalFileIndex the global file index were the str begins in
+ *  the original file
  */
-const readFileByChunksBackwardsForStringIndex = async (file, str, defaultChunkSize=1000000, maxBytesRead=100000000) =>{
+const readFileByChunksBackwardsForStringIndex = async (file, str, defaultChunkSize, maxBytesRead) =>{
   const chunkSize = file.size < defaultChunkSize ? file.size : defaultChunkSize 
   let iteration = 0;
   let start = null;
@@ -150,10 +152,16 @@ const readFileByChunksBackwardsForStringIndex = async (file, str, defaultChunkSi
 /**
  * Retrieves the creation time of the mp4 video
  * @param {(File | Blob)} file 
+ * @param options configuration options for the parser
+ * @param options.defaultChunkSize the default chunk size to parse per iteration in bytes
+ * @param options.maxBytesRead the amount of bytes the parser will read before stopping. Make this the file size to read the entire file.
  * @return {(String | null)} a date time iso string of the creation time or null
  */
-const getCreationTime = async (file) => {
-  const globalFileIndex = await readFileByChunksBackwardsForStringIndex(file, 'mvhd');
+const getCreationTime = async (file, options={}) => {
+  const defaultChunkSize = options.defaultChunkSize ? options.defaultChunkSize : 100000;
+  const maxBytesRead = options.maxBytesRead ? options.maxBytesRead : 100000000;
+
+  const globalFileIndex = await readFileByChunksBackwardsForStringIndex(file, 'mvhd', defaultChunkSize, maxBytesRead);
   if (!globalFileIndex) return null;
 
   // global file index points the start of m in mvhd, lets move it 4 bytes past this str name

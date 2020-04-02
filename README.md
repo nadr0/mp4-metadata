@@ -70,16 +70,32 @@ The only exposed function right now is called `getCreationTime`
 /**
  * Retrieves the creation time of the mp4 video
  * @param {(File | Blob)} file 
+ * @param options configuration options for the parser
+ * @param options.defaultChunkSize the default chunk size to parse per iteration in bytes
+ * @param options.maxBytesRead the amount of bytes the parser will read before stopping. Make this the file size to read the entire file.
  * @return {(String | null)} a date time iso string of the creation time or null
  */
-const getCreationTime = async (file) => { ... }
+const getCreationTime = async (file, options={}) => 
 ```
+
+- Quickly read the metadata from the back without searching the whole file
 
 ```javascript
 const mp4Metadata = require('mp4-metadata').default;
 
 const mp4File = retrieveMp4File();
 const creationTime = await mp4Metadata.getCreationTime(mp4File);
+// 2016-06-03T20:51:02.000Z
+```
+
+- To read the entire file for the metadata
+
+```javascript
+const mp4Metadata = require('mp4-metadata').default;
+
+const mp4File = retrieveMp4File();
+const options = {maxBytesRead: mp4File.size};
+const creationTime = await mp4Metadata.getCreationTime(mp4File, options);
 // 2016-06-03T20:51:02.000Z
 ```
 
