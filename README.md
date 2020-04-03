@@ -24,7 +24,9 @@ npm install mp4-metadata
 
 See it out on npm [here](https://www.npmjs.com/package/mp4-metadata)
 
-# Installation - local development or to build it yourself.
+# Installation
+
+This will allow you to locally develop the code and build it from source yourself.
 
 ## Clone
 
